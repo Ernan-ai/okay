@@ -1,0 +1,32 @@
+.slide-two-title {
+    background: linear-gradient(135deg, #ffffff 0%, #4f46e5 30%, #7c3aed 70%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .slide-two-subtitle {
+    color: #7c3aed;
+  }
+  
+  .slide-two-button {
+    border-color: #7c3aed;
+    color: #7c3aed;
+  }
+  
+  .slide-two-button:hover {
+    background-color: #7c3aed;
+    color: white;
+  }
+  
+  .slide-two-button .button-bg {
+    background-color: #7c3aed;
+  }
+  
+  .slide-two-visual .visual-bg {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.3), transparent);
+  }
+  
+  .slide-two-visual .progress-fill {
+    background: linear-gradient(to right, #7c3aed, #4f46e5);
+  }

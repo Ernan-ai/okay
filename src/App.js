@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import SlideOne from './components/SlideOne/SlideOne';
+import SlideTwo from './components/SlideTwo/SlideTwo';
+import SlideThree from './components/SlideThree/SlideThree';
 import './App.css';
 
 const LandingPage = () => {
@@ -14,21 +17,9 @@ const LandingPage = () => {
   }, []);
 
   const slides = [
-    {
-      title: "WE GENERATE CREATIVE & NOVATION IDEAS",
-      subtitle: "XOXO FAM BRUNCH RETRO INTELLIGENTSIA LIVE-EDGE VEGAN",
-      number: "01"
-    },
-    {
-      title: "PREMIUM DIGITAL EXPERIENCES", 
-      subtitle: "CRAFT BEER VINYL SUSTAINABLE ORGANIC DIRECT TRADE",
-      number: "02"
-    },
-    {
-      title: "INNOVATIVE BRAND SOLUTIONS",
-      subtitle: "ARTISAN AUTHENTIC SMALL BATCH LETTERPRESS PORTLAND", 
-      number: "03"
-    }
+    { component: SlideOne, number: "01" },
+    { component: SlideTwo, number: "02" }, 
+    { component: SlideThree, number: "03" }
   ];
 
   const nextSlide = () => {
@@ -38,6 +29,8 @@ const LandingPage = () => {
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
+
+  const CurrentSlideComponent = slides[currentSlide].component;
 
   return (
     <div className="landing-page">
@@ -61,60 +54,7 @@ const LandingPage = () => {
           <div className="left-bg-gradient" />
         </div>
 
-        <div className="content-wrapper">
-          <div className="content-grid">
-            <div className="text-content">
-              <div className="title-wrapper">
-                <h1 
-                  className="main-title"
-                  style={{
-                    transform: `translateY(${scrollY * 0.1}px)`
-                  }}
-                >
-                  {slides[currentSlide].title}
-                </h1>
-              </div>
-              
-              <div className="subtitle-section">
-                <p 
-                  className="subtitle"
-                  style={{
-                    transform: `translateY(${scrollY * 0.05}px)`
-                  }}
-                >
-                  {slides[currentSlide].subtitle}
-                </p>
-                
-                <button 
-                  className="cta-button"
-                  style={{
-                    transform: `translateY(${scrollY * 0.02}px)`
-                  }}
-                >
-                  <span className="button-text">READ MORE</span>
-                  <div className="button-bg" />
-                </button>
-              </div>
-            </div>
-
-            <div className="visual-content">
-              <div 
-                className="visual-wrapper"
-                style={{
-                  transform: `translateY(${scrollY * -0.1}px)`
-                }}
-              >
-                <div className="visual-bg" />
-                <div className="visual-card">
-                  <div className="card-overlay" />
-                  <div className="progress-bar">
-                    <div className="progress-fill" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <CurrentSlideComponent scrollY={scrollY} />
 
         <div className="navigation-controls">
           <button 
