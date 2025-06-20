@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import './App.css';
 
 const LandingPage = () => {
@@ -40,7 +41,7 @@ const LandingPage = () => {
 
   return (
     <div className="landing-page">
-      <Header />
+      <Header scrollY={scrollY} />
 
       <div className="hero-section">
         <div 
@@ -158,6 +159,8 @@ const LandingPage = () => {
           CREATIVE AGENCY
         </div>
       </div>
+      
+      <Footer />
     </div>
   );
 };
