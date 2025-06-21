@@ -6,7 +6,7 @@ import SlideTwo from './components/SlideTwo/SlideTwo';
 import SlideThree from './components/SlideThree/SlideThree';
 import './App.css';
 
-const LandingPage = () => {
+const App = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [scrollY, setScrollY] = useState(0);
 
@@ -56,47 +56,30 @@ const LandingPage = () => {
 
         <CurrentSlideComponent scrollY={scrollY} />
 
-        <div className="navigation-controls">
-          <button 
-            onClick={prevSlide}
-            className="nav-button prev-button"
-          >
-            <svg className="nav-icon prev-icon" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-            </svg>
-          </button>
+        <div className="slide-one-navigation">
+          <div className="slide-one-scroll-indicator">
+            <span>SCROLL</span>
+            <div className="slide-one-scroll-line"></div>
+          </div>
           
-          <button 
-            onClick={nextSlide}
-            className="nav-button next-button"
-          >
-            <svg className="nav-icon" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-            </svg>
-          </button>
-        </div>
-
-        <div className="scroll-indicator">
-          <div className="scroll-text">SCROLL</div>
-          <svg className="scroll-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
-        </div>
-
-        <div className="slide-numbers">
-          {slides.map((slide, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`slide-number ${index === currentSlide ? 'active' : ''}`}
-            >
-              {slide.number}
-            </button>
-          ))}
-        </div>
-
-        <div className="vertical-text">
-          CREATIVE AGENCY
+          <div className="slide-one-pagination">
+            <div className="slide-one-nav-arrows">
+              <button className="slide-one-nav-arrow" onClick={prevSlide}>‹</button>
+              <button className="slide-one-nav-arrow" onClick={nextSlide}>›</button>
+            </div>
+            
+            <div className="slide-one-dots">
+              {slides.map((slide, index) => (
+                <span 
+                  key={index}
+                  className={`slide-one-dot ${index === currentSlide ? 'active' : ''}`}
+                  onClick={() => setCurrentSlide(index)}
+                >
+                  {slide.number}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
       
@@ -105,4 +88,4 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+export default App;

@@ -1,32 +1,138 @@
-.slide-one-title {
-    background: linear-gradient(135deg, #ffffff 0%, #ff0066 30%, #00ff88 70%, #ffffff 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.slide-one-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: #0a0a0a;
+    overflow: hidden;
+  }
+  
+  .slide-one-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba(20, 20, 20, 0.8) 0%,
+      rgba(0, 0, 0, 0.4) 50%,
+      transparent 100%
+    );
+    z-index: 1;
+  }
+  
+  .slide-one-bg-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.02"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.02"/><circle cx="50" cy="10" r="1" fill="%23ffffff" opacity="0.02"/><circle cx="10" cy="90" r="1" fill="%23ffffff" opacity="0.02"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    mix-blend-mode: overlay;
+  }
+  
+  .slide-one-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+  }
+  
+  .slide-one-text-section {
+    flex: 1;
+    max-width: 45%;
+    margin-left: auto;
+    padding-left: 2rem;
+  }
+  
+  .slide-one-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+    color: #ff1744;
+    text-transform: uppercase;
+    font-family: 'Arial Black', sans-serif;
   }
   
   .slide-one-subtitle {
-    color: #00ff88;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: #666;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
   }
   
   .slide-one-button {
-    border-color: #00ff88;
-    color: #00ff88;
+    background: transparent;
+    border: 1px solid #ff1744;
+    color: #ff1744;
+    padding: 1rem 2.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .slide-one-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #ff1744;
+    transition: left 0.3s ease;
+    z-index: -1;
+  }
+  
+  .slide-one-button:hover::before {
+    left: 0;
   }
   
   .slide-one-button:hover {
-    background-color: #00ff88;
-    color: black;
+    color: white;
   }
   
-  .slide-one-button .button-bg {
-    background-color: #00ff88;
+  
+  
+  .slide-one-people-silhouette {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 55%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      rgba(40, 40, 40, 0.9) 0%,
+      rgba(60, 60, 60, 0.7) 30%,
+      rgba(80, 80, 80, 0.5) 60%,
+      transparent 100%
+    );
+    z-index: 1;
   }
   
-  .slide-one-visual .visual-bg {
-    background: linear-gradient(135deg, rgba(0, 255, 136, 0.3), transparent);
-  }
-  
-  .slide-one-visual .progress-fill {
-    background: linear-gradient(to right, #00ff88, #00ccff);
+  .slide-one-people-silhouette::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.02) 30%,
+      transparent 70%
+    );
+    border-radius: 50%;
   }
