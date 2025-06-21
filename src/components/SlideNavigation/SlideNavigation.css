@@ -1,0 +1,78 @@
+.slide-one-navigation {
+    position: absolute;
+    bottom: 3rem;
+    right: 3rem;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+  }
+  
+  .slide-one-scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: #666;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  
+  .slide-one-scroll-line {
+    width: 1px;
+    height: 3rem;
+    background: linear-gradient(to bottom, transparent, #666, transparent);
+  }
+  
+  .slide-one-pagination {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .slide-one-nav-arrows {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .slide-one-nav-arrow {
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid #333;
+    background: transparent;
+    color: #666;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+  
+  .slide-one-nav-arrow:hover {
+    border-color: #ff1744;
+    color: #ff1744;
+  }
+  
+  .slide-one-dots {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 1rem;
+  }
+  
+  .slide-one-dot {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .slide-one-dot.active {
+    color: #ff1744;
+  }
+  
+  .slide-one-dot:hover {
+    color: #ff4569;
+  }

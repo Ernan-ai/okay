@@ -4,6 +4,7 @@ import Footer from './components/Footer/Footer';
 import SlideOne from './components/SlideOne/SlideOne';
 import SlideTwo from './components/SlideTwo/SlideTwo';
 import SlideThree from './components/SlideThree/SlideThree';
+import SlideNavigation from './components/SlideNavigation/SlideNavigation';
 import './App.css';
 
 const App = () => {
@@ -56,31 +57,13 @@ const App = () => {
 
         <CurrentSlideComponent scrollY={scrollY} />
 
-        <div className="slide-one-navigation">
-          <div className="slide-one-scroll-indicator">
-            <span>SCROLL</span>
-            <div className="slide-one-scroll-line"></div>
-          </div>
-          
-          <div className="slide-one-pagination">
-            <div className="slide-one-nav-arrows">
-              <button className="slide-one-nav-arrow" onClick={prevSlide}>‹</button>
-              <button className="slide-one-nav-arrow" onClick={nextSlide}>›</button>
-            </div>
-            
-            <div className="slide-one-dots">
-              {slides.map((slide, index) => (
-                <span 
-                  key={index}
-                  className={`slide-one-dot ${index === currentSlide ? 'active' : ''}`}
-                  onClick={() => setCurrentSlide(index)}
-                >
-                  {slide.number}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
+        <SlideNavigation 
+          slides={slides}
+          currentSlide={currentSlide}
+          setCurrentSlide={setCurrentSlide}
+          nextSlide={nextSlide}
+          prevSlide={prevSlide}
+        />
       </div>
       
       <Footer />
